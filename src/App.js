@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import background from "./images/p02y7swm.jpg";
+import Game from './container/Game';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id='background' style={{ backgroundImage: `url(${background})`,
+    backgroundRepeat: 'no-repeat',
+    width:'100%',
+    height:'100%'
+    }}>
+    <Game/>
     </div>
   );
 }
