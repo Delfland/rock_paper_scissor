@@ -1,26 +1,24 @@
-import React, {useState} from "react";
+import React from "react";
 
-const PlayerTwoChoice = () => {
-
-    const [playerTwoSelects, setPlayerTwoSelects] = useState("")
+const PlayerTwoChoice = ({onP2ChoiceMade}) => {
 
     const rockHandleClick = (event) => {
-        setPlayerTwoSelects(event.target.value)
+        onP2ChoiceMade(event.target.value)
     }
 
     const paperHandleClick = (event) => {
-        setPlayerTwoSelects(event.target.value)
+        onP2ChoiceMade(event.target.value)
     }
 
-    const scissorHandleClick = (event) => {
-        setPlayerTwoSelects(event.target.value)
+    const scissorsHandleClick = (event) => {
+        onP2ChoiceMade(event.target.value)
     }
 
     return (
         <>
         <button onClick={rockHandleClick} value="rock">Rock</button>
         <button onClick={paperHandleClick} value="paper">Paper</button>
-        <button onClick={scissorHandleClick} value="scissor">Scissor</button>
+        <button onClick={scissorsHandleClick} value="scissors">Scissors</button>
         </>
     )
 }
