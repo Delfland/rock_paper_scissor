@@ -1,27 +1,25 @@
-// const ResultButton = ({p1Choice, p2Choice, onChoicesMade}) => {
+const ResultButton = ({playerOne, playerTwo, p1Choice, p2Choice, onChoicesMade}) => {
 
-//     const result = function(playerChoices) {
-//         switch (playerChoices) {
-//             case ['rock', 'rock']:
-//             case ['paper', 'paper']:
-//             case ['scissors', 'scissors']:
-//                 onChoicesMade("It's a tie")
-//             case ['rock', 'scissors']:
-//             case ['paper', 'rock']:
-//             case ['scissors', 'paper']:
-//                 onChoicesMade("Player 1 wins!")
-//             case ['rock', 'rock']:
-//             case ['paper', 'paper']:
-//             case ['scissors', 'scissors']:
-//                 onChoicesMade("Player 2 wins!")
-//         }
-//     }
+    const result = (choices) => {
+        if (choices === ['rock', 'rock'] || choices === ['paper', 'paper'] || choices === ['scissors', 'scissors']) {
+                onChoicesMade("It's a tie");
+            }
+        else if (choices === ['rock', 'scissors'] || choices === ['paper', 'rock'] || choices === ['scissors', 'paper']) {
+                onChoicesMade(`${playerOne} wins!`);
+            }
+        else {
+                onChoicesMade(`${playerTwo} wins!`);
+        }
+    }
 
-    
+    const handleClick = () => {
+        const choices = [p1Choice, p2Choice]
+        console.log(result(choices))
+    }
 
-//     return (
-//     <button onClick={handleClick} value="result">Winner</button>
-//     )
-// }
+    return (
+        <button onClick={handleClick}>Winner?</button>
+    )
+}
 
-// export default ResultButton;
+export default ResultButton;

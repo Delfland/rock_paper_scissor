@@ -3,19 +3,19 @@ import NameForm from "../Component/NameForm";
 import AnnounceWinner from "../Component/AnnounceWinner";
 import PlayerOneChoice from "../Component/PlayerOneChoice";
 import PlayerTwoChoice from "../Component/PlayerTwoChoice";
+import ResultButton from "../Component/ResultButton";
 
 
 
 const Game = () => {
 
     const [players, setPlayers] = useState([])
-    const [playerOneRPS, setPlayerOneRPS] = useState(null)
-    const [playerTwoRPS, setPlayerTwoRPS] = useState(null)
+    const [playerOneRPS, setPlayerOneRPS] = useState("")
+    const [playerTwoRPS, setPlayerTwoRPS] = useState("")
     const [winner, setWinner] = useState("")
-    
 
     const onNamesSubmit = function(players) {
-        setPlayers(players);
+        setPlayers(players)
     }
 
     const onP1ChoiceMade = function(choice) {
@@ -29,7 +29,15 @@ const Game = () => {
     const onChoicesMade = function(result) {
         setWinner(result)
     }
-    
+
+    const handleClick = () => {
+        setPlayers([]);
+        setPlayerOneRPS("");
+        setPlayerTwoRPS("");
+        setWinner("");
+    }
+
+
     return (
         <>
         <h1>Rock Paper Scissors</h1>
@@ -40,9 +48,9 @@ const Game = () => {
         <h4>Player 2: {players[1]}</h4>
         <PlayerTwoChoice onP2ChoiceMade={onP2ChoiceMade}/>
         {playerTwoRPS? <p>Chosen</p>:null}
-        {playerTwoRPS?<AnnounceWinner playerOne={players[0]} playerTwo={players[1]} p1Choice={playerOneRPS} p2Choice={playerTwoRPS}/>:null}
-        {/* <ResultButton onChoicesMade={onChoicesMade} p1Choice={playerOneRPS} p2Choice={playerTwoRPS}/>
-        {winner?<AnnounceWinner playerOne={players[0]} playerTwo={players[1]} p1Choice={playerOneRPS} p2Choice={playerTwoRPS}>{winner}</AnnounceWinner>:null} */}
+        <ResultButton playerOne={players[0]} playerTwo={players[1]} p1Choice={playerOneRPS} p2Choice={playerTwoRPS} onChoicesMade={onChoicesMade}/>
+        {winner?<AnnounceWinner playerOne={players[0]} playerTwo={players[1]} p1Choice={playerOneRPS} p2Choice={playerTwoRPS} winner={winner}/> :null}
+        <button onClick={handleClick}>New Game</button>
         </>
     )
 }
