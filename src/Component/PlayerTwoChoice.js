@@ -1,4 +1,5 @@
 import React from "react";
+import { SlButton, SlButtonGroup } from '@shoelace-style/shoelace/dist/react';
 
 const PlayerTwoChoice = ({onP2ChoiceMade}) => {
 
@@ -16,9 +17,11 @@ const PlayerTwoChoice = ({onP2ChoiceMade}) => {
 
     return (
         <>
-        <button onClick={rockHandleClick} value="rock">Rock</button>
-        <button onClick={paperHandleClick} value="paper">Paper</button>
-        <button onClick={scissorsHandleClick} value="scissors">Scissors</button>
+        <SlButtonGroup label="Alignment">
+        <SlButton size="medium" onClick={rockHandleClick} value="rock">Rock</SlButton>
+        <SlButton size="medium" onClick={paperHandleClick} value="paper">Paper</SlButton>
+        <SlButton size="medium" onClick={scissorsHandleClick} value="scissors">Scissors</SlButton>
+        </SlButtonGroup>
         </>
     )
 }

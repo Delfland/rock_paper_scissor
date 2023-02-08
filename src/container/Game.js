@@ -4,6 +4,7 @@ import AnnounceWinner from "../Component/AnnounceWinner";
 import PlayerOneChoice from "../Component/PlayerOneChoice";
 import PlayerTwoChoice from "../Component/PlayerTwoChoice";
 import ResultButton from "../Component/ResultButton";
+import { SlButton } from "@shoelace-style/shoelace/dist/react";
 
 
 
@@ -42,15 +43,15 @@ const Game = () => {
         <>
         <h1>Rock Paper Scissors</h1>
         <NameForm onNamesSubmit={onNamesSubmit}/>
-        <h4>Player 1: {players[0]}</h4>
-        <PlayerOneChoice onP1ChoiceMade={onP1ChoiceMade}/>
-        {playerOneRPS? <p>Chosen</p>:null}
-        <h4>Player 2: {players[1]}</h4>
-        <PlayerTwoChoice onP2ChoiceMade={onP2ChoiceMade}/>
-        {playerTwoRPS? <p>Chosen</p>:null}
         <ResultButton playerOne={players[0]} playerTwo={players[1]} p1Choice={playerOneRPS} p2Choice={playerTwoRPS} onChoicesMade={onChoicesMade}/>
-        {winner?<AnnounceWinner playerOne={players[0]} playerTwo={players[1]} p1Choice={playerOneRPS} p2Choice={playerTwoRPS} winner={winner}/> :null}
-        <button onClick={handleClick}>New Game</button>
+        <SlButton size="medium" onClick={handleClick} >New Game</SlButton>
+            {winner?<AnnounceWinner playerOne={players[0]} playerTwo={players[1]} p1Choice={playerOneRPS} p2Choice={playerTwoRPS} winner={winner}/> :null}
+        <h3>Player 1: {players[0]}</h3>
+        <PlayerOneChoice onP1ChoiceMade={onP1ChoiceMade}/>
+            {playerOneRPS? <p>Chosen</p>:null}
+        <h3>Player 2: {players[1]}</h3>
+        <PlayerTwoChoice onP2ChoiceMade={onP2ChoiceMade}/>
+            {playerTwoRPS? <p>Chosen</p>:null}
         </>
     )
 }

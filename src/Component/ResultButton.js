@@ -1,3 +1,5 @@
+import { SlButton } from '@shoelace-style/shoelace/dist/react';
+
 const ResultButton = ({playerOne, playerTwo, p1Choice, p2Choice, onChoicesMade}) => {
 
     const result = (choices) => {
@@ -18,7 +20,7 @@ const ResultButton = ({playerOne, playerTwo, p1Choice, p2Choice, onChoicesMade})
     }
 
     return (
-        <button onClick={handleClick}>Winner?</button>
+        <SlButton size="medium" onClick={handleClick} >Winner?</SlButton>
     )
 }
 
