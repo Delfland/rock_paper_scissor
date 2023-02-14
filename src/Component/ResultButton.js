@@ -2,21 +2,31 @@ import { SlButton } from '@shoelace-style/shoelace/dist/react';
 
 const ResultButton = ({playerOne, playerTwo, p1Choice, p2Choice, onChoicesMade}) => {
 
-    const result = (choices) => {
-        if (choices === ['rock', 'rock'] || choices === ['paper', 'paper'] || choices === ['scissors', 'scissors']) {
+    const getResult = (choices) => {
+        switch (choices) {
+            case 'rock rock':
+            case 'paper paper':
+            case 'scissors scissors':
                 onChoicesMade("It's a tie");
-            }
-        else if (choices === ['rock', 'scissors'] || choices === ['paper', 'rock'] || choices === ['scissors', 'paper']) {
+        break;
+            case 'rock scissors':
+            case 'paper rock':
+            case 'scissors paper':
                 onChoicesMade(`${playerOne} wins!`);
-            }
-        else {
+        break;
+            case 'scissors rock':
+            case 'rock paper':
+            case 'paper scissors':
                 onChoicesMade(`${playerTwo} wins!`);
-        }
+        break;
+            default:
+                onChoicesMade('No choices to compute, please select your choices.')
     }
+}
 
     const handleClick = () => {
-        const choices = [p1Choice, p2Choice]
-        console.log(result(choices))
+        const choices = p1Choice + " " + p2Choice;
+        getResult(choices)
     }
 
     return (
