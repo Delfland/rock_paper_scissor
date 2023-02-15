@@ -7,7 +7,7 @@ const ResultButton = ({playerOne, playerTwo, p1Choice, p2Choice, onChoicesMade})
             case 'rock rock':
             case 'paper paper':
             case 'scissors scissors':
-                onChoicesMade("It's a tie");
+                onChoicesMade("It's a tie...");
         break;
             case 'rock scissors':
             case 'paper rock':

@@ -1,10 +1,11 @@
 import React, {useState} from "react";
-import NameForm from "../Component/NameForm";
-import AnnounceWinner from "../Component/AnnounceWinner";
-import PlayerOneChoice from "../Component/PlayerOneChoice";
-import PlayerTwoChoice from "../Component/PlayerTwoChoice";
-import ResultButton from "../Component/ResultButton";
+import NameForm from "../component/NameForm";
+import AnnounceWinner from "../component/AnnounceWinner";
+import PlayerOneChoice from "../component/PlayerOneChoice";
+import PlayerTwoChoice from "../component/PlayerTwoChoice";
+import ResultButton from "../component/ResultButton";
 import { SlButton } from "@shoelace-style/shoelace/dist/react";
+import { ButtonContainer, ControlsContainer, FormContainer, GameContainer, PlayerOneContainer, PlayerTwoContainer, TitleContainer } from "../styles/gameStyles";
 
 
 
@@ -40,21 +41,34 @@ const Game = () => {
 
 
     return (
-        <>
-        <h1>Rock Paper Scissors</h1>
-        <NameForm onNamesSubmit={onNamesSubmit}/>
-            {winner?<AnnounceWinner playerOne={players[0]} playerTwo={players[1]} p1Choice={playerOneRPS} p2Choice={playerTwoRPS} winner={winner}/> :null}
-        <h3>Player 1: {players[0]}</h3>
-        <PlayerOneChoice onP1ChoiceMade={onP1ChoiceMade}/>
-            {playerOneRPS? <p>Chosen</p>:null}
-        <h3>Player 2: {players[1]}</h3>
-        <PlayerTwoChoice onP2ChoiceMade={onP2ChoiceMade}/>
-            {playerTwoRPS? <p>Chosen</p>:null}
-        <div>
-            <ResultButton playerOne={players[0]} playerTwo={players[1]} p1Choice={playerOneRPS} p2Choice={playerTwoRPS} onChoicesMade={onChoicesMade}/>
-            <SlButton size="medium" onClick={handleClick} >New Game</SlButton>
-        </div>
-        </>
+    
+        <GameContainer>
+            <TitleContainer>
+                <h1>Rock Paper Scissors</h1>
+            </TitleContainer>
+            <FormContainer>
+                <NameForm onNamesSubmit={onNamesSubmit}/>
+                <ButtonContainer>
+                    {winner?<AnnounceWinner playerOne={players[0]} playerTwo={players[1]} p1Choice={playerOneRPS} p2Choice={playerTwoRPS} winner={winner}/> :
+                    <ResultButton playerOne={players[0]} playerTwo={players[1]} p1Choice={playerOneRPS} p2Choice={playerTwoRPS} onChoicesMade={onChoicesMade}/>}
+                </ButtonContainer>
+            </FormContainer>
+            <PlayerOneContainer>
+                <h3>Player 1: {players[0]}</h3>
+                <PlayerOneChoice onP1ChoiceMade={onP1ChoiceMade}/>
+                    {playerOneRPS? <p>Chosen</p>:null}
+            </PlayerOneContainer>
+            <PlayerTwoContainer>
+                <h3>Player 2: {players[1]}</h3>
+                <PlayerTwoChoice onP2ChoiceMade={onP2ChoiceMade}/>
+                    {playerTwoRPS? <p>Chosen</p>:null}
+            </PlayerTwoContainer>
+            <ControlsContainer>
+                
+                <SlButton size="medium" onClick={handleClick} >New Game</SlButton>
+            </ControlsContainer>
+        </GameContainer>
+    
     )
 }
 
