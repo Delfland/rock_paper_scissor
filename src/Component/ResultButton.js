@@ -33,5 +33,4 @@ const ResultButton = ({playerOne, playerTwo, p1Choice, p2Choice, onChoicesMade})
         <SlButton size="medium" onClick={handleClick} >Winner?</SlButton>
     )
 }
-
 export default ResultButton;

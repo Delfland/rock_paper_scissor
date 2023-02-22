@@ -27,12 +27,14 @@ const NameForm = ({onNamesSubmit}) => {
     return (
         <form onSubmit={handleNamesSubmit}>
             <input
+            data-testid="player1"
             type="text"
             placeholder="Enter Player 1"
             value={playerOne}
             onChange={handleNameChangeOne}
             />
             <input
+            data-testid="player2"
             type="text"
             placeholder="Enter Player 2"
             value={playerTwo}

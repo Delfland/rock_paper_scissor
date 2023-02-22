@@ -44,7 +44,7 @@ const Game = () => {
     
         <GameContainer>
             <TitleContainer>
-                <h1>Rock Paper Scissors</h1>
+                <h1 data-testid="title">Rock Paper Scissors</h1>
             </TitleContainer>
             <FormContainer>
                 <NameForm onNamesSubmit={onNamesSubmit}/>
